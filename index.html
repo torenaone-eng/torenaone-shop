@@ -23,24 +23,57 @@ img{max-width:100%}
 .btn-out:hover{background:#f0f8f3}
 .btn-sm{padding:8px 14px;font-size:13px;border-radius:8px}
 
-/* header */
-header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 1px 8px rgba(0,0,0,.03)}
-.hdr{display:flex;align-items:center;gap:24px;height:66px}
-.logo{font-size:24px;font-weight:800;letter-spacing:-.5px}
-.logo b{color:var(--green)}
-nav.main{display:flex;gap:22px;font-size:15px;font-weight:500;margin-left:8px}
-nav.main a:hover{color:var(--green)}
-.hdr-right{margin-left:auto;display:flex;align-items:center;gap:18px}
-.phone{font-weight:700;font-size:15px;white-space:nowrap}
-.cart-btn{position:relative;background:var(--green);color:#fff;border:none;border-radius:10px;padding:9px 14px;font-weight:600;cursor:pointer}
-.cart-badge{position:absolute;top:-7px;right:-7px;background:var(--amber);color:#fff;font-size:11px;font-weight:700;min-width:19px;height:19px;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:0 5px}
+/* topbar */
+.topbar{background:#16241f;color:#cfe0d8;font-size:13px}
+.tb{display:flex;align-items:center;height:38px;gap:18px}
+.tb-left{display:flex;gap:18px;align-items:center}
+.tb-left a:hover,.tb-right a:hover{color:#fff}
+.tb-right{margin-left:auto;display:flex;align-items:center;gap:14px}
+.tb-right .phone{color:#fff;font-weight:700}
 
-/* hero */
-.hero{background:linear-gradient(135deg,#16241f 0%,#1f7a45 100%);color:#fff;padding:64px 0}
-.hero h1{font-size:40px;line-height:1.15;font-weight:800;max-width:680px;margin-bottom:16px}
-.hero p{font-size:18px;opacity:.92;max-width:560px;margin-bottom:28px}
-.hero .row{display:flex;gap:14px;flex-wrap:wrap}
-.hero .badge{display:inline-block;background:rgba(255,255,255,.15);padding:6px 14px;border-radius:20px;font-size:13px;font-weight:600;margin-bottom:22px}
+/* header */
+header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 1px 8px rgba(0,0,0,.04)}
+.hdr{display:flex;align-items:center;gap:16px;height:74px}
+.logo{font-size:26px;font-weight:800;letter-spacing:-.5px;flex:none}
+.logo b{color:var(--green)}
+.cat-btn{display:flex;align-items:center;gap:9px;background:var(--green);color:#fff;border:none;border-radius:10px;padding:13px 20px;font-size:15px;font-weight:700;cursor:pointer;flex:none}
+.cat-btn:hover{background:var(--green-d)}
+.search{flex:1;display:flex;border:1.5px solid var(--green);border-radius:11px;overflow:hidden;min-width:120px}
+.search input{flex:1;border:none;padding:12px 16px;font-size:15px;outline:none;background:#fff;color:var(--ink)}
+.search button{background:var(--green);color:#fff;border:none;padding:0 18px;font-size:17px;cursor:pointer}
+.hdr-icons{display:flex;gap:18px;flex:none}
+.hi{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11px;color:var(--muted);position:relative}
+.hi .i{font-size:20px}
+.hi:hover{color:var(--green)}
+.hi .cart-badge{position:absolute;top:-6px;right:4px;background:var(--amber);color:#fff;font-size:10px;font-weight:700;min-width:17px;height:17px;border-radius:9px;display:flex;align-items:center;justify-content:center;padding:0 4px}
+
+/* hero carousel */
+.hero-car{padding:20px 0 0}
+.hero-car .container{position:relative}
+.slides{position:relative;border-radius:18px;overflow:hidden}
+.slide{display:none;min-height:310px;padding:50px 56px;color:#fff;flex-direction:column;justify-content:center}
+.slide.on{display:flex}
+.slide .badge{display:inline-block;background:rgba(255,255,255,.16);padding:6px 14px;border-radius:20px;font-size:13px;font-weight:600;margin-bottom:18px;align-self:flex-start}
+.slide h2{font-size:34px;font-weight:800;max-width:600px;margin-bottom:12px;text-align:left;color:#fff}
+.slide p{font-size:17px;opacity:.94;max-width:500px;margin-bottom:22px}
+.car-nav{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:none;background:rgba(255,255,255,.9);color:#16241f;font-size:22px;cursor:pointer;z-index:3}
+.car-nav.prev{left:-6px}.car-nav.next{right:-6px}
+.dots{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:3}
+.dots i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.55);cursor:pointer;display:block}
+.dots i.on{background:#fff}
+/* featured + chips + discount */
+.feat-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.see-all{color:var(--green-d);font-weight:600;font-size:14px;white-space:nowrap}
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:20px}
+.chip{background:#fff;border:1px solid var(--line);border-radius:20px;padding:7px 15px;font-size:13px;font-weight:600;cursor:pointer}
+.chip:hover{border-color:var(--green)}
+.chip.on{background:var(--green);color:#fff;border-color:var(--green)}
+.disc{position:absolute;top:10px;right:10px;background:#e23b5a;color:#fff;font-size:12px;font-weight:700;padding:3px 9px;border-radius:20px}
+.price .old{color:var(--muted);text-decoration:line-through;font-weight:600;font-size:13px;margin-left:4px}
+/* cookie */
+.cookie{position:fixed;bottom:18px;right:18px;max-width:360px;background:#16241f;color:#dfeae4;padding:16px 18px;border-radius:14px;font-size:13px;z-index:80;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.cookie a{color:var(--green);text-decoration:underline}
+.cookie button{margin-top:10px;background:var(--green);color:#fff;border:none;border-radius:8px;padding:9px 18px;font-weight:600;cursor:pointer}
 
 /* sections */
 section{padding:54px 0}
@@ -48,7 +81,7 @@ section{padding:54px 0}
 .sub{text-align:center;color:var(--muted);margin-bottom:34px;font-size:16px}
 
 /* category tiles */
-.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:16px}
 .cat-tile{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 20px;text-align:center;transition:.18s;cursor:pointer}
 .cat-tile:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(31,122,69,.13);border-color:var(--green)}
 .cat-ico{width:64px;height:64px;margin:0 auto 14px;border-radius:16px;background:#eaf5ee;display:flex;align-items:center;justify-content:center;font-size:30px}
@@ -185,6 +218,13 @@ footer a:hover{color:#fff}
   .grid{grid-template-columns:repeat(2,1fr)}
   .catalog-wrap{grid-template-columns:1fr}
   .promo-news{grid-template-columns:1fr}
+  .tb-left a{display:none}
+  .hdr{flex-wrap:wrap;height:auto;padding:10px 0;gap:10px}
+  .search{order:3;flex:1 0 100%}
+  .hi span:not(.i){display:none}
+  .cat-btn{padding:11px 14px}
+  .slide{padding:34px 26px}
+  .slide h2{font-size:24px}
   .filters{position:static}
   #view-product .pd{grid-template-columns:1fr}
   .pd .gallery{height:240px;font-size:64px}
@@ -196,40 +236,68 @@ footer a:hover{color:#fff}
 </head>
 <body>
 
-<header>
-  <div class="container hdr">
-    <a class="logo" onclick="go('home')">torena<b>One</b></a>
-    <nav class="main">
-      <a onclick="go('catalog')">Каталог</a>
+<div class="topbar">
+  <div class="container tb">
+    <div class="tb-left">
+      <span>📍 Краснодар</span>
+      <a onclick="go('home');setTimeout(()=>scrollToId('contacts'),50)">Магазины</a>
+      <a onclick="showToast('Доставка — раздел в разработке')">Доставка</a>
       <a onclick="go('calc')">Калькулятор</a>
       <a onclick="go('home');setTimeout(()=>scrollToId('services'),50)">Услуги</a>
       <a onclick="go('home');setTimeout(()=>scrollToId('about'),50)">О бренде</a>
-      <a onclick="go('home');setTimeout(()=>scrollToId('contacts'),50)">Контакты</a>
-    </nav>
-    <div class="hdr-right">
+    </div>
+    <div class="tb-right">
       <span class="phone">+7 (933) 033-05-69</span>
-      <button class="cart-btn" onclick="go('cart')">Корзина
-        <span class="cart-badge" id="cartBadge">0</span>
-      </button>
+      <a title="Telegram">✈</a>
+    </div>
+  </div>
+</div>
+<header>
+  <div class="container hdr">
+    <a class="logo" onclick="go('home')">torena<b>One</b></a>
+    <button class="cat-btn" onclick="go('catalog')">☰ Каталог</button>
+    <div class="search">
+      <input id="hsearch" placeholder="Поиск по сайту (модель, артикул)" onkeydown="if(event.key==='Enter')headerSearch()">
+      <button onclick="headerSearch()">🔍</button>
+    </div>
+    <div class="hdr-icons">
+      <a class="hi" onclick="showToast('Сравнение — в разработке')"><span class="i">⚖️</span><span>Сравнение</span></a>
+      <a class="hi" onclick="showToast('Избранное — в разработке')"><span class="i">♡</span><span>Избранное</span></a>
+      <a class="hi" onclick="go('cart')"><span class="i">🛒</span><span>Корзина</span><b class="cart-badge" id="cartBadge">0</b></a>
+      <a class="hi" onclick="showToast('Вход в личный кабинет — в разработке')"><span class="i">👤</span><span>Войти</span></a>
     </div>
   </div>
 </header>
 
 <!-- ===== HOME ===== -->
 <div id="view-home">
-  <div class="hero">
+  <div class="hero-car">
     <div class="container">
-      <span class="badge">Производитель тепловых насосов · Краснодар</span>
-      <h1>Тепловые насосы TorenaOne для дома, бассейна и горячей воды</h1>
-      <p>Экономия до 80% по сравнению с электрокотлами. Отопление, охлаждение и ГВС в одной системе. Управление через Wi-Fi.</p>
-      <div class="row">
-        <button class="btn btn-primary" onclick="go('catalog')">Перейти в каталог</button>
-        <button class="btn btn-ghost" onclick="scrollToId('calc')">Подобрать оборудование</button>
-      </div>
+      <div class="slides" id="slides"></div>
+      <button class="car-nav prev" onclick="slide(-1)">‹</button>
+      <button class="car-nav next" onclick="slide(1)">›</button>
+      <div class="dots" id="dots"></div>
     </div>
   </div>
 
-  <section style="padding-bottom:0">
+  <section style="padding:32px 0 10px">
+    <div class="container">
+      <div class="cats" id="homeCats"></div>
+    </div>
+  </section>
+
+  <section style="padding-top:18px">
+    <div class="container">
+      <div class="feat-head">
+        <div class="h2" style="text-align:left;margin:0">Тепловые насосы для дома</div>
+        <a class="see-all" onclick="openCat('home')">Все модели →</a>
+      </div>
+      <div class="chips" id="featChips"></div>
+      <div class="grid" id="featGrid"></div>
+    </div>
+  </section>
+
+  <section style="padding-top:10px">
     <div class="container">
       <div class="promo-news">
         <div class="promo-banner">
@@ -244,14 +312,6 @@ footer a:hover{color:#fff}
           <a style="color:var(--green-d);font-weight:600;font-size:14px;display:inline-block;margin-top:8px" onclick="showToast('Раздел новостей — наполним позже')">Все новости →</a>
         </aside>
       </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <div class="h2">Каталог оборудования</div>
-      <div class="sub">Выберите оборудование TorenaOne под вашу задачу</div>
-      <div class="cats" id="homeCats"></div>
     </div>
   </section>
 
@@ -389,6 +449,8 @@ footer a:hover{color:#fff}
   </div>
 </footer>
 
+<div class="cookie" id="cookie">Мы используем файлы cookie. Продолжая пользоваться сайтом, вы соглашаетесь с <a onclick="showToast('Политика — раздел в разработке')">политикой обработки данных</a>.<br><button onclick="document.getElementById('cookie').style.display='none'">Ок</button></div>
+
 <div class="toast" id="toast"></div>
 
 <script>
@@ -486,22 +548,7 @@ function currentList(){
 function render(){
   const list=currentList();
   document.getElementById('count').textContent=list.length+' '+plural(list.length,'модель','модели','моделей');
-  document.getElementById('grid').innerHTML=list.map(p=>`
-    <div class="card" onclick="openProduct('${p.id}')">
-      <div class="ph">${imgFor(p)?`<img src="${imgFor(p)}" alt="${p.model}" style="max-height:124px;max-width:88%;object-fit:contain">`:(CAT_ICON[p.category_slug]||'🔥')}<span class="tag">${p.refrigerant||p.series}</span></div>
-      <div class="body">
-        <div class="ser">${p.series}</div>
-        <div class="name">${p.model}</div>
-        <div class="spec">${p.capacity} · ${p.type}</div>
-        ${p.price_on_request
-          ? `<div class="req">Цена по запросу</div>`
-          : `<div class="price">${fmt(p.price_rub)}${p.price_alt_rub?` <small>(${fmt(p.price_alt_rub)})</small>`:''}</div>`}
-        <div class="acts">
-          <button class="btn btn-out btn-sm" onclick="event.stopPropagation();openProduct('${p.id}')">Подробнее</button>
-          <button class="btn btn-primary btn-sm" onclick="addCart(event,'${p.id}')">${p.price_on_request?'Заявка':'В корзину'}</button>
-        </div>
-      </div>
-    </div>`).join('') || (activeCat==='fancoils'
+  document.getElementById('grid').innerHTML=list.map(cardHTML).join('') || (activeCat==='fancoils'
       ? '<div style="grid-column:1/-1;text-align:center;padding:50px 20px;background:#fff;border:1px dashed var(--line);border-radius:14px"><div style="font-size:46px">🌬️</div><h3 style="margin:10px 0 6px">Фанкойлы</h3><p style="color:var(--muted)">Раздел в подготовке — модели и описания появятся позже.</p></div>'
       : '<p style="color:var(--muted);padding:40px 0">Ничего не найдено. Сбросьте фильтры.</p>');
 }
@@ -616,15 +663,7 @@ function calcResult(){
     if(!picks.length)picks=cand.slice(-3);
   }
   const unit=t.unit==='people'?'л':'кВт';
-  const cards=picks.map(p=>`
-    <div class="card" onclick="openProduct('${p.id}')">
-      <div class="ph">${imgFor(p)?`<img src="${imgFor(p)}" alt="${p.model}" style="max-height:124px;max-width:88%;object-fit:contain">`:CAT_ICON[p.category_slug]}<span class="tag">${p.refrigerant||p.series}</span></div>
-      <div class="body"><div class="ser">${p.series}</div><div class="name">${p.model}</div>
-        <div class="spec">${p.capacity} · ${p.type}</div>
-        ${p.price_on_request?`<div class="req">Цена по запросу</div>`:`<div class="price">${fmt(p.price_rub)}</div>`}
-        <div class="acts"><button class="btn btn-out btn-sm" onclick="event.stopPropagation();openProduct('${p.id}')">Подробнее</button>
-        <button class="btn btn-primary btn-sm" onclick="addCart(event,'${p.id}')">${p.price_on_request?'Заявка':'В корзину'}</button></div>
-      </div></div>`).join('');
+  const cards=picks.map(cardHTML).join('');
   return `<div class="calc-step">
     <h3>Результат подбора</h3>
     <div class="hint">${t.e} ${t.t} · ${REGIONS[calcState.region].n}</div>
@@ -692,7 +731,73 @@ function buildNews(){
   el.innerHTML=NEWS.map(n=>`<div class="news-item"><div class="date">${n.date}</div><div class="t">${n.t}</div></div>`).join('');
 }
 
-buildHome();buildNews();buildFilters();render();
+// ===== единая карточка товара (со скидочным бейджем) =====
+function cardHTML(p){
+  const disc=(!p.price_on_request&&p.price_alt_rub&&p.price_alt_rub>p.price_rub)?Math.round((1-p.price_rub/p.price_alt_rub)*100):0;
+  const img=imgFor(p);
+  return `<div class="card" onclick="openProduct('${p.id}')">
+    <div class="ph">${img?`<img src="${img}" alt="${p.model}" style="max-height:124px;max-width:88%;object-fit:contain">`:(CAT_ICON[p.category_slug]||'🔥')}
+      <span class="tag">${p.refrigerant||p.series}</span>${disc?`<span class="disc">-${disc}%</span>`:''}</div>
+    <div class="body">
+      <div class="ser">${p.series}</div>
+      <div class="name">${p.model}</div>
+      <div class="spec">${p.capacity} · ${p.type}</div>
+      ${p.price_on_request
+        ? `<div class="req">Цена по запросу</div>`
+        : `<div class="price">${fmt(p.price_rub)}${disc?`<small class="old">${fmt(p.price_alt_rub)}</small>`:''}</div>`}
+      <div class="acts">
+        <button class="btn btn-out btn-sm" onclick="event.stopPropagation();openProduct('${p.id}')">Подробнее</button>
+        <button class="btn btn-primary btn-sm" onclick="addCart(event,'${p.id}')">${p.price_on_request?'Заявка':'В корзину'}</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+// ===== карусель баннеров =====
+const SLIDES=[
+  {bg:"linear-gradient(120deg,#16241f,#1f7a45)",badge:"Производитель · Краснодар",h:"Тепловые насосы TorenaOne для дома, бассейна и ГВС",p:"Экономия до 80% по сравнению с электрокотлами. Управление через Wi-Fi.",cta:"Перейти в каталог",act:"go('catalog')"},
+  {bg:"linear-gradient(120deg,#1f7a45,#2e9e5b)",badge:"Подбор за 5 шагов",h:"Не знаете, какая мощность нужна?",p:"Калькулятор сам подберёт модель под вашу площадь, регион и задачу — и покажет цену.",cta:"Рассчитать оборудование",act:"go('calc')"},
+  {bg:"linear-gradient(120deg,#b9710d,#e8a13a)",badge:"Акция месяца",h:"Гарантия лучшей цены",p:"Нашли аналог дешевле? Проверим и предложим выгодные условия. Консультация — бесплатно.",cta:"Смотреть каталог",act:"go('catalog')"}
+];
+let curSlide=0,slideTimer=null;
+function renderSlides(){
+  document.getElementById('slides').innerHTML=SLIDES.map((s,i)=>`
+    <div class="slide ${i===0?'on':''}" style="background:${s.bg}">
+      <span class="badge">${s.badge}</span><h2>${s.h}</h2><p>${s.p}</p>
+      <button class="btn" style="background:#fff;color:#16241f;align-self:flex-start" onclick="${s.act}">${s.cta}</button>
+    </div>`).join('');
+  document.getElementById('dots').innerHTML=SLIDES.map((s,i)=>`<i class="${i===0?'on':''}" onclick="goSlide(${i})"></i>`).join('');
+}
+function goSlide(i){
+  curSlide=(i+SLIDES.length)%SLIDES.length;
+  document.querySelectorAll('.slide').forEach((e,k)=>e.classList.toggle('on',k===curSlide));
+  document.querySelectorAll('.dots i').forEach((e,k)=>e.classList.toggle('on',k===curSlide));
+}
+function slide(d){goSlide(curSlide+d);resetSlideTimer();}
+function resetSlideTimer(){clearInterval(slideTimer);slideTimer=setInterval(()=>goSlide(curSlide+1),6000);}
+
+// ===== поиск в шапке =====
+function headerSearch(){
+  const q=(document.getElementById('hsearch').value||'').trim();
+  activeCat='all';go('catalog');buildFilters();
+  const s=document.getElementById('search');if(s){s.value=q;}
+  render();
+}
+
+// ===== блок товаров на главной (с чипсами по сериям) =====
+let featSeries='all';
+function buildFeatured(){
+  const home=CATALOG.products.filter(p=>p.category_slug==='home');
+  const series=[...new Set(home.map(p=>p.series))];
+  document.getElementById('featChips').innerHTML=
+    `<div class="chip ${featSeries==='all'?'on':''}" onclick="setFeat('all')">Все</div>`+
+    series.map(s=>`<div class="chip ${featSeries===s?'on':''}" onclick="setFeat('${s}')">${s}</div>`).join('');
+  let list=featSeries==='all'?home:home.filter(p=>p.series===featSeries);
+  document.getElementById('featGrid').innerHTML=list.slice(0,8).map(cardHTML).join('');
+}
+function setFeat(s){featSeries=s;buildFeatured();}
+
+buildHome();buildNews();buildFeatured();renderSlides();resetSlideTimer();buildFilters();render();
 </script>
 </body>
 </html>
