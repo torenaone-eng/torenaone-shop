@@ -78,6 +78,15 @@ header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid 
 .mon-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px}
 .sub-card{background:#f0f8f3;border-color:#cfe7d8}
 .sub-badge{display:inline-block;background:var(--green);color:#fff;font-weight:700;font-size:13px;padding:5px 14px;border-radius:20px;margin-bottom:12px}
+/* магазины / партнёры */
+.store-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.store-card.own{border-color:var(--green);background:#f0f8f3}
+.st-type{display:inline-block;background:#eaf5ee;color:var(--green-d);font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px}
+.store-card.own .st-type{background:var(--green);color:#fff}
+.st-name{font-weight:700;font-size:16px;margin-bottom:6px}
+.st-city{font-size:14px;font-weight:600;margin-bottom:2px}
+.st-addr{font-size:13px;color:var(--muted);margin-bottom:8px}
+.st-phone{font-size:14px;font-weight:600}
 /* app promo */
 .app-banner{background:linear-gradient(120deg,#1f7a45,#2e9e5b);color:#fff;border-radius:18px;padding:40px;display:flex;align-items:center;gap:30px;flex-wrap:wrap;justify-content:space-between}
 .app-banner h3{font-size:26px;margin-bottom:8px}
@@ -264,6 +273,7 @@ footer a:hover{color:#fff}
       <a onclick="go('calc')">Калькулятор</a>
       <a onclick="go('home');setTimeout(()=>scrollToId('services'),50)">Услуги</a>
       <a onclick="go('home');setTimeout(()=>scrollToId('about'),50)">О бренде</a>
+      <a onclick="go('stores')">Где купить</a>
       <a onclick="go('partnership')">Сотрудничество</a>
     </div>
     <div class="tb-right">
@@ -490,6 +500,20 @@ footer a:hover{color:#fff}
   </div>
 </div>
 
+<!-- ===== ГДЕ КУПИТЬ / ПАРТНЁРЫ ===== -->
+<div id="view-stores" class="hide">
+  <div class="container" style="padding-top:26px">
+    <div class="crumbs"><a onclick="go('home')">Главная</a> → Где купить</div>
+    <div class="h2" style="text-align:left">Где купить · Наши партнёры</div>
+    <div class="sub" style="text-align:left;margin-bottom:22px">Официальные магазины, дилеры и сервис-партнёры, где можно купить оборудование TorenaOne</div>
+    <div class="cats" id="storesGrid"></div>
+    <div class="mon-card" style="margin-top:24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+      <div><b style="font-size:17px">Хотите продавать оборудование TorenaOne?</b><div style="color:var(--muted);font-size:14px">Станьте нашим дилером или партнёром — выгодные условия и поддержка.</div></div>
+      <button class="btn btn-primary" onclick="go('partnership')">Стать партнёром</button>
+    </div>
+  </div>
+</div>
+
 <!-- ===== СОТРУДНИЧЕСТВО ===== -->
 <div id="view-partnership" class="hide">
   <div class="container" style="padding-top:26px">
@@ -569,6 +593,7 @@ footer a:hover{color:#fff}
         <a onclick="showToast('Страница в разработке')">Публичная оферта</a>
         <a onclick="showToast('Страница в разработке')">Гарантия</a>
         <a onclick="go('partnership')">Сотрудничество</a>
+        <a onclick="go('stores')">Где купить</a>
       </div>
     </div>
     <div class="copy">© 2026 TorenaOne · Прототип интернет-магазина</div>
@@ -610,7 +635,8 @@ function addCart(e,id){if(e)e.stopPropagation();cart[id]=(cart[id]||0)+1;updateB
 function setQty(id,d){cart[id]=(cart[id]||0)+d;if(cart[id]<=0)delete cart[id];updateBadge();renderCart();}
 
 function go(view){
-  ['home','catalog','calc','cart','checkout','monitoring','partnership','product'].forEach(v=>document.getElementById('view-'+v).classList.toggle('hide',v!==view));
+  ['home','catalog','calc','cart','checkout','monitoring','partnership','stores','product'].forEach(v=>document.getElementById('view-'+v).classList.toggle('hide',v!==view));
+  if(view==='stores')renderStores();
   if(view==='calc'){calcState={step:1,task:null,area:null,people:null,volume:null,region:'south'};renderCalc();}
   if(view==='cart')renderCart();
   if(view==='checkout')renderCheckout();
@@ -640,6 +666,12 @@ function buildFilters(){
   });
   html+=`<h4>Хладагент</h4>`+refrs.map(r=>`<label><input type="checkbox" class="f-refr" value="${r}" onchange="render()"> ${r}</label>`).join('');
   html+=`<h4>Тип</h4>`+types.map(t=>`<label><input type="checkbox" class="f-type" value="${t}" onchange="render()"> ${t}</label>`).join('');
+  if(activeCat!=='all'){
+    const seriesList=[...new Set(CATALOG.products.filter(p=>p.category_slug===activeCat).map(p=>p.series))];
+    if(seriesList.length>1){
+      html+=`<h4>Серия</h4>`+seriesList.map(s=>`<label><input type="checkbox" class="f-series" value="${s.replace(/"/g,'&quot;')}" onchange="render()"> ${s}</label>`).join('');
+    }
+  }
   html+=`<h4>Мощность, кВт</h4>
     <div style="display:flex;gap:8px">
       <input type="number" id="f-pmin" placeholder="от" style="width:50%;padding:8px 10px;border:1px solid var(--line);border-radius:8px;font-size:14px" oninput="render()">
@@ -649,7 +681,7 @@ function buildFilters(){
     <label><input type="checkbox" id="f-instock" onchange="render()"> Только с ценой</label>`;
   document.getElementById('filters').innerHTML=html;
 }
-function setCat(slug){activeCat=slug;render();updateTitle();}
+function setCat(slug){activeCat=slug;updateTitle();buildFilters();render();}
 function updateTitle(){
   const c=ALL_CATS.find(x=>x.slug===activeCat);
   document.getElementById('catTitle').textContent=c?c.name:'Каталог';
@@ -659,6 +691,7 @@ function currentList(){
   const q=(document.getElementById('search').value||'').toLowerCase().trim();
   const refrs=[...document.querySelectorAll('.f-refr:checked')].map(x=>x.value);
   const types=[...document.querySelectorAll('.f-type:checked')].map(x=>x.value);
+  const sers=[...document.querySelectorAll('.f-series:checked')].map(x=>x.value);
   const instock=document.getElementById('f-instock')&&document.getElementById('f-instock').checked;
   const pminEl=document.getElementById('f-pmin'),pmaxEl=document.getElementById('f-pmax');
   const pmin=pminEl&&pminEl.value!==''?+pminEl.value:null;
@@ -667,6 +700,7 @@ function currentList(){
     if(activeCat!=='all'&&p.category_slug!==activeCat)return false;
     if(refrs.length&&!refrs.includes(p.refrigerant))return false;
     if(types.length&&!types.includes(p.type))return false;
+    if(sers.length&&!sers.includes(p.series))return false;
     if(instock&&p.price_on_request)return false;
     if(pmin!==null||pmax!==null){const kw=kwOf(p.capacity);if(kw===null)return false;if(pmin!==null&&kw<pmin)return false;if(pmax!==null&&kw>pmax)return false;}
     if(q&&!(p.model.toLowerCase().includes(q)||(p.sku||'').toLowerCase().includes(q)))return false;
@@ -892,6 +926,25 @@ function monRegister(){
   if(!email||!serial||!phone||!last||!first)return showToast('Заполните e-mail, серийный номер, телефон, фамилию и имя');
   if(!agree)return showToast('Подтвердите согласие с условиями');
   showToast('Заявка отправлена — бот-менеджер свяжется для активации подписки (прототип)');
+}
+const STORES=[
+  {name:"Фирменный магазин-склад TorenaOne",city:"Краснодар",addr:"пос. Индустриальный, ул. Адмиралтейская, 60/11",phone:"+7 (933) 033-05-69",type:"Производитель",own:true},
+  {name:"ТеплоДом",city:"Ростов-на-Дону",addr:"пр. Стачки, 120",phone:"+7 (863) 000-00-00",type:"Дилер"},
+  {name:"КлиматМаркет",city:"Сочи",addr:"ул. Навагинская, 9",phone:"+7 (862) 000-00-00",type:"Магазин"},
+  {name:"ИнженерСервис",city:"Ставрополь",addr:"ул. Ленина, 200",phone:"+7 (8652) 00-00-00",type:"Сервис-партнёр"},
+  {name:"АкваТепло",city:"Краснодар",addr:"ул. Уральская, 75",phone:"+7 (861) 000-00-00",type:"Магазин"},
+  {name:"ЭкоКлимат",city:"Симферополь",addr:"ул. Киевская, 150",phone:"+7 (3652) 00-00-00",type:"Дилер"}
+];
+function renderStores(){
+  const el=document.getElementById('storesGrid');if(!el)return;
+  el.innerHTML=STORES.map(s=>`
+    <div class="store-card${s.own?' own':''}">
+      <div class="st-type">${s.own?'★ '+s.type:s.type}</div>
+      <div class="st-name">${s.name}</div>
+      <div class="st-city">📍 ${s.city}</div>
+      <div class="st-addr">${s.addr}</div>
+      <div class="st-phone">${s.phone}</div>
+    </div>`).join('');
 }
 function buildNews(){
   const el=document.getElementById('newsList');if(!el)return;
