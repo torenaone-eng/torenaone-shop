@@ -264,6 +264,7 @@ footer a:hover{color:#fff}
       <a onclick="go('calc')">Калькулятор</a>
       <a onclick="go('home');setTimeout(()=>scrollToId('services'),50)">Услуги</a>
       <a onclick="go('home');setTimeout(()=>scrollToId('about'),50)">О бренде</a>
+      <a onclick="go('partnership')">Сотрудничество</a>
     </div>
     <div class="tb-right">
       <span class="phone">+7 (933) 033-05-69</span>
@@ -489,6 +490,57 @@ footer a:hover{color:#fff}
   </div>
 </div>
 
+<!-- ===== СОТРУДНИЧЕСТВО ===== -->
+<div id="view-partnership" class="hide">
+  <div class="container" style="padding-top:26px">
+    <div class="crumbs"><a onclick="go('home')">Главная</a> → Сотрудничество</div>
+    <div class="mon-hero">
+      <span class="badge" style="background:rgba(255,255,255,.16);color:#fff;padding:6px 14px;border-radius:20px;font-size:13px;font-weight:600">🤝 Партнёрам</span>
+      <h1>Развивайте бизнес вместе с TorenaOne</h1>
+      <p>TorenaOne — производитель тепловых насосов с собственным производством и экспертизой с 2020 года. Мы предлагаем партнёрам выгодные условия, поддержку и качественный продукт, адаптированный под российский климат. Приглашаем к сотрудничеству дилеров, монтажные и проектные организации, сервисные компании.</p>
+      <button class="btn" style="background:#fff;color:#16241f;margin-top:6px" onclick="scrollToId('partnerForm')">Стать партнёром</button>
+    </div>
+
+    <div class="h2" style="text-align:left">Почему выгодно работать с нами</div>
+    <div class="adv" style="margin:18px 0 36px">
+      <div class="item"><div class="ico">🏭</div><h4>Собственное производство</h4><p>Серийное производство с многоступенчатым контролем качества.</p></div>
+      <div class="item"><div class="ico">💸</div><h4>Гибкая ценовая политика</h4><p>Выгодные дилерские цены и честные условия для партнёров.</p></div>
+      <div class="item"><div class="ico">📣</div><h4>Маркетинговая поддержка</h4><p>Рекламные материалы, акции и помощь в продвижении.</p></div>
+      <div class="item"><div class="ico">🎓</div><h4>Обучение и консультации</h4><p>Онлайн и очно, персональная поддержка инженеров.</p></div>
+      <div class="item"><div class="ico">🛠️</div><h4>Сервис и запчасти</h4><p>Гарантийный сервис, расходные материалы и запчасти в наличии.</p></div>
+      <div class="item"><div class="ico">📈</div><h4>Растущий ассортимент</h4><p>Насосы для дома, бассейна, ГВС, ёмкости и фанкойлы.</p></div>
+    </div>
+
+    <div class="mon-grid">
+      <div class="mon-card">
+        <h3 style="margin-bottom:10px">Кого приглашаем</h3>
+        <ul class="feat-list">
+          <li>Оптовые компании и дилеров</li>
+          <li>Монтажные и инженерно-монтажные организации</li>
+          <li>Проектные организации</li>
+          <li>Сервисные центры и инженеров</li>
+          <li>Розничные магазины климатической и отопительной техники</li>
+        </ul>
+        <p style="color:var(--muted);font-size:14px;margin-top:12px">Заинтересованы в сотрудничестве? Заполните форму — мы оперативно свяжемся с вами и обсудим условия.</p>
+        <div style="margin-top:14px;font-size:14px">Отдел партнёров: <b>+7 (933) 033-05-69</b> · <b>torena1@yandex.ru</b></div>
+      </div>
+      <div class="mon-card form" id="partnerForm">
+        <h3 style="margin-bottom:8px">Заявка на сотрудничество</h3>
+        <label class="fld">Тип компании *</label>
+        <select id="pt_type"><option>Дилер / оптовая компания</option><option>Монтажная организация</option><option>Проектная организация</option><option>Сервисная компания</option><option>Розничный магазин</option></select>
+        <label class="fld">ФИО *</label><input type="text" id="pt_name" placeholder="Иван Иванов">
+        <label class="fld">Компания</label><input type="text" id="pt_company" placeholder="ООО «Тепло»">
+        <label class="fld">Город / регион *</label><input type="text" id="pt_city" placeholder="Краснодар">
+        <label class="fld">Телефон *</label><input type="tel" id="pt_phone" placeholder="+7 (___) ___-__-__">
+        <label class="fld">E-mail *</label><input type="email" id="pt_email" placeholder="mail@example.ru">
+        <label class="fld">Текст обращения</label><textarea rows="3" placeholder="Коротко о вашей компании и интересе"></textarea>
+        <label class="agree"><input type="checkbox" id="pt_agree"><span>Даю согласие на обработку персональных данных</span></label>
+        <button class="btn btn-primary" style="width:100%" onclick="partnerSubmit()">Отправить заявку</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ===== PRODUCT ===== -->
 <div id="view-product" class="hide">
   <div class="container" style="padding-top:26px" id="productBody"></div>
@@ -516,6 +568,7 @@ footer a:hover{color:#fff}
         <a onclick="showToast('Страница в разработке')">Политика конфиденциальности</a>
         <a onclick="showToast('Страница в разработке')">Публичная оферта</a>
         <a onclick="showToast('Страница в разработке')">Гарантия</a>
+        <a onclick="go('partnership')">Сотрудничество</a>
       </div>
     </div>
     <div class="copy">© 2026 TorenaOne · Прототип интернет-магазина</div>
@@ -554,7 +607,7 @@ function addCart(e,id){if(e)e.stopPropagation();cart[id]=(cart[id]||0)+1;updateB
 function setQty(id,d){cart[id]=(cart[id]||0)+d;if(cart[id]<=0)delete cart[id];updateBadge();renderCart();}
 
 function go(view){
-  ['home','catalog','calc','cart','checkout','monitoring','product'].forEach(v=>document.getElementById('view-'+v).classList.toggle('hide',v!==view));
+  ['home','catalog','calc','cart','checkout','monitoring','partnership','product'].forEach(v=>document.getElementById('view-'+v).classList.toggle('hide',v!==view));
   if(view==='calc'){calcState={step:1,task:null,area:null,people:null,volume:null,region:'south'};renderCalc();}
   if(view==='cart')renderCart();
   if(view==='checkout')renderCheckout();
@@ -809,6 +862,16 @@ function submitOrder(){
   showToast(msg[payMethod]||'Заказ оформлен (прототип)');
 }
 
+function partnerSubmit(){
+  const phone=(document.getElementById('pt_phone').value||'').trim();
+  const email=(document.getElementById('pt_email').value||'').trim();
+  const name=(document.getElementById('pt_name').value||'').trim();
+  const city=(document.getElementById('pt_city').value||'').trim();
+  const agree=document.getElementById('pt_agree').checked;
+  if(!name||!city||!phone||!email)return showToast('Заполните ФИО, город, телефон и e-mail');
+  if(!agree)return showToast('Подтвердите согласие на обработку данных');
+  showToast('Заявка на сотрудничество отправлена — менеджер свяжется с вами (прототип)');
+}
 function monRegister(){
   const email=(document.getElementById('mon_email').value||'').trim();
   const serial=(document.getElementById('mon_serial').value||'').trim();
