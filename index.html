@@ -6,8 +6,9 @@
 <title>TorenaOne — тепловые насосы | Прототип магазина</title>
 <style>
 :root{
-  --green:#2e9e5b; --green-d:#1f7a45; --ink:#16241f; --muted:#5d6f68;
-  --bg:#f4f8f5; --card:#ffffff; --line:#e2ece6; --amber:#e8a13a;
+  --green:#50be37; --green-d:#3a9e27; --teal:#3ea296; --orange:#f35e25;
+  --ink:#1c2b18; --muted:#5d6f62; --bg:#f5f9f3; --card:#ffffff;
+  --line:#e4eede; --mint:#dff3db; --amber:#f35e25;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5}
@@ -71,7 +72,7 @@ header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid 
 .disc{position:absolute;top:10px;right:10px;background:#e23b5a;color:#fff;font-size:12px;font-weight:700;padding:3px 9px;border-radius:20px}
 .price .old{color:var(--muted);text-decoration:line-through;font-weight:600;font-size:13px;margin-left:4px}
 /* сервисный мониторинг */
-.mon-hero{background:linear-gradient(120deg,#16241f,#1f7a45);color:#fff;border-radius:18px;padding:38px 40px;margin-bottom:24px}
+.mon-hero{background:linear-gradient(120deg,#1f5e1b,#50be37);color:#fff;border-radius:18px;padding:38px 40px;margin-bottom:24px}
 .mon-hero h1{font-size:30px;margin:12px 0 10px}
 .mon-hero p{opacity:.93;max-width:760px;font-size:16px}
 .mon-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:22px;align-items:start}
@@ -88,7 +89,7 @@ header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid 
 .st-addr{font-size:13px;color:var(--muted);margin-bottom:8px}
 .st-phone{font-size:14px;font-weight:600}
 /* app promo */
-.app-banner{background:linear-gradient(120deg,#1f7a45,#2e9e5b);color:#fff;border-radius:18px;padding:40px;display:flex;align-items:center;gap:30px;flex-wrap:wrap;justify-content:space-between}
+.app-banner{background:linear-gradient(120deg,#2c7a70,#3ea296);color:#fff;border-radius:18px;padding:40px;display:flex;align-items:center;gap:30px;flex-wrap:wrap;justify-content:space-between}
 .app-banner h3{font-size:26px;margin-bottom:8px}
 .app-banner p{opacity:.94;max-width:460px}
 .store-btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
@@ -110,7 +111,7 @@ section{padding:54px 0}
 .cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:16px}
 .cat-tile{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 20px;text-align:center;transition:.18s;cursor:pointer}
 .cat-tile:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(31,122,69,.13);border-color:var(--green)}
-.cat-ico{width:64px;height:64px;margin:0 auto 14px;border-radius:16px;background:#eaf5ee;display:flex;align-items:center;justify-content:center;font-size:30px}
+.cat-ico{width:64px;height:64px;margin:0 auto 14px;border-radius:16px;background:var(--mint);display:flex;align-items:center;justify-content:center;font-size:30px}
 .cat-tile h3{font-size:17px;margin-bottom:4px}
 .cat-tile .cnt{color:var(--green-d);font-weight:600;font-size:14px}
 
@@ -187,7 +188,7 @@ footer a:hover{color:#fff}
 
 /* promo banner + news */
 .promo-news{display:grid;grid-template-columns:2fr 1fr;gap:22px;align-items:stretch}
-.promo-banner{background:linear-gradient(120deg,#e8a13a,#cf7d10);color:#fff;border-radius:16px;padding:30px;display:flex;flex-direction:column;justify-content:center}
+.promo-banner{background:linear-gradient(120deg,#f35e25,#d8431a);color:#fff;border-radius:16px;padding:30px;display:flex;flex-direction:column;justify-content:center}
 .promo-banner .k{font-size:12px;text-transform:uppercase;letter-spacing:1.5px;opacity:.9;font-weight:700}
 .promo-banner h3{font-size:27px;margin:6px 0 10px}
 .promo-banner p{opacity:.96;margin-bottom:18px;max-width:520px}
@@ -215,7 +216,7 @@ footer a:hover{color:#fff}
 .calc-step input[type=number],.calc-step input[type=text],.calc-step select,.calc-step textarea{width:100%;padding:13px 14px;border:1.5px solid var(--line);border-radius:10px;font-size:15px;font-family:inherit}
 .calc-step label.fld{display:block;font-weight:600;margin:14px 0 6px;font-size:14px}
 .calc-nav{display:flex;justify-content:space-between;margin-top:24px}
-.result-power{background:linear-gradient(135deg,#16241f,#1f7a45);color:#fff;border-radius:14px;padding:22px;text-align:center;margin-bottom:22px}
+.result-power{background:linear-gradient(135deg,#1f5e1b,#50be37);color:#fff;border-radius:14px;padding:22px;text-align:center;margin-bottom:22px}
 .result-power .big{font-size:38px;font-weight:800}
 .result-power .lbl{opacity:.85;font-size:14px}
 .calc-disclaimer{font-size:12px;color:var(--muted);margin-top:14px;line-height:1.5}
@@ -327,7 +328,7 @@ footer a:hover{color:#fff}
           <span class="k">Акция месяца</span>
           <h3>Гарантия лучшей цены</h3>
           <p>Нашли аналог дешевле? Проверим цену и предложим выгодные условия. Бесплатная консультация и расчёт — за наш счёт.</p>
-          <button class="btn" style="background:#fff;color:#b9710d;align-self:flex-start" onclick="go('catalog')">Смотреть каталог</button>
+          <button class="btn" style="background:#fff;color:#d8431a;align-self:flex-start" onclick="go('catalog')">Смотреть каталог</button>
         </div>
         <aside class="news">
           <h4>📰 Новости</h4>
@@ -975,10 +976,10 @@ function cardHTML(p){
 
 // ===== карусель баннеров =====
 const SLIDES=[
-  {bg:"linear-gradient(120deg,#16241f,#1f7a45)",badge:"Производитель · Краснодар",h:"Тепловые насосы TorenaOne для дома, бассейна и ГВС",p:"Экономия до 80% по сравнению с электрокотлами. Управление через Wi-Fi.",cta:"Перейти в каталог",act:"go('catalog')"},
-  {bg:"linear-gradient(120deg,#1f7a45,#2e9e5b)",badge:"Подбор за 5 шагов",h:"Не знаете, какая мощность нужна?",p:"Калькулятор сам подберёт модель под вашу площадь, регион и задачу — и покажет цену.",cta:"Рассчитать оборудование",act:"go('calc')"},
-  {bg:"linear-gradient(120deg,#b9710d,#e8a13a)",badge:"Акция месяца",h:"Гарантия лучшей цены",p:"Нашли аналог дешевле? Проверим и предложим выгодные условия. Консультация — бесплатно.",cta:"Смотреть каталог",act:"go('catalog')"},
-  {bg:"linear-gradient(120deg,#0a5c2e,#1f7a45)",badge:"Рассрочка 0%",h:"Рассрочка без переплат на 10 месяцев",p:"Оформите оборудование в рассрочку без процентов. При оформлении заказа выберите оплату в рассрочку.",cta:"Перейти в каталог",act:"go('catalog')"}
+  {bg:"linear-gradient(120deg,#1f5e1b,#50be37)",badge:"Производитель · Краснодар",h:"Тепловые насосы TorenaOne для дома, бассейна и ГВС",p:"Экономия до 80% по сравнению с электрокотлами. Управление через Wi-Fi.",cta:"Перейти в каталог",act:"go('catalog')"},
+  {bg:"linear-gradient(120deg,#2c7a70,#3ea296)",badge:"Подбор за 5 шагов",h:"Не знаете, какая мощность нужна?",p:"Калькулятор сам подберёт модель под вашу площадь, регион и задачу — и покажет цену.",cta:"Рассчитать оборудование",act:"go('calc')"},
+  {bg:"linear-gradient(120deg,#d8431a,#f35e25)",badge:"Акция месяца",h:"Гарантия лучшей цены",p:"Нашли аналог дешевле? Проверим и предложим выгодные условия. Консультация — бесплатно.",cta:"Смотреть каталог",act:"go('catalog')"},
+  {bg:"linear-gradient(120deg,#2c7a1c,#50be37)",badge:"Рассрочка 0%",h:"Рассрочка без переплат на 10 месяцев",p:"Оформите оборудование в рассрочку без процентов. При оформлении заказа выберите оплату в рассрочку.",cta:"Перейти в каталог",act:"go('catalog')"}
 ];
 let curSlide=0,slideTimer=null;
 function renderSlides(){
